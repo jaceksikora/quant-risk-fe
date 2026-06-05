@@ -241,6 +241,36 @@ export default function SimulationReport() {
 
             </div>
             {
+                report && (
+
+                    <div
+                        style={{
+                            marginTop: "40px",
+                            backgroundColor: "#1E293B",
+                            padding: "20px",
+                            borderRadius: "12px",
+                            border: "1px solid #334155"
+                        }}
+                    >
+
+                        <h2>
+                            AI Investment Analysis
+                        </h2>
+
+                        <div
+                            style={{
+                                whiteSpace: "pre-line",
+                                lineHeight: "1.8"
+                            }}
+                        >
+                            {report}
+                        </div>
+
+                    </div>
+
+                )
+            }
+            {
                 result && (
 
                     <div
