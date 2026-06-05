@@ -1,73 +1,82 @@
-# React + TypeScript + Vite
+# QuantRisk Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A user interface for the financial risk analysis and investment portfolio optimization platform. The application allows for market data visualization, Monte Carlo simulations, and automated analytical report generation.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Installation and Setup](#installation-and-setup)
+- [Project Structure](#project-structure)
+- [Core Modules](#core-modules)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Market Analysis:**
+  - Display historical prices for financial instruments.
+  - Calculate return statistics (mean return, number of observations).
+  - Volatility analysis (daily and annualized).
+- **Portfolio Optimization:**
+  - Calculate optimal weights for a multi-asset portfolio.
+  - Allocation visualization using pie charts.
+  - Calculate portfolio variance.
+- **Monte Carlo Simulations:**
+  - Run thousands of simulations for future portfolio value.
+  - Visualize simulation paths and final value distribution.
+  - AI integration for generating textual reports based on simulation results.
 
-## Expanding the ESLint configuration
+## Technologies
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework:** [React 19](https://react.dev/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Charts:** [Recharts](https://recharts.org/)
+- **API Communication:** [Axios](https://axios-http.com/)
+- **Routing:** [React Router 7](https://reactrouter.com/)
+- **Linting:** [ESLint](https://eslint.org/)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Installation and Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- npm or yarn
+
+### Installation Steps
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd quant-risk-fe
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser at `http://localhost:5173`.
+
+### Production Build
+
+```bash
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `src/api` - Axios client configuration for backend communication.
+- `src/components` - Reusable components (charts, metric cards, sidebar).
+- `src/pages` - Main application views (Market Analysis, Portfolio, Simulation).
+- `src/types` - TypeScript type definitions for API data.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Core Modules
+
+- **MarketAnalysis:** Allows entering a stock ticker to fetch detailed statistics and price charts.
+- **PortfolioOptimization:** A tool for portfolio optimization based on a provided list of tickers.
+- **SimulationReport:** An advanced risk simulation module with graphical result representation and AI reports.
