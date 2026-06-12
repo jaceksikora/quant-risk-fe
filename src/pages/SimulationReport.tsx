@@ -17,7 +17,7 @@ import DistributionChart
 export default function SimulationReport() {
 
     const [tickers, setTickers] =
-        useState("MSFT");
+        useState("AAPL,NVDA,EA,JPM,VMC");
 
     const [investment, setInvestment] =
         useState(5000);

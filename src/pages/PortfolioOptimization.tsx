@@ -8,7 +8,7 @@ import AllocationChart
 export default function PortfolioOptimization() {
 
     const [tickers, setTickers] =
-        useState("AAPL,NVDA");
+        useState("AAPL,NVDA,EA,JPM,VMC");
 
     const [result, setResult] =
         useState<PortfolioOptimizationResponse | null>(
@@ -48,6 +48,17 @@ export default function PortfolioOptimization() {
 
             <h1>Portfolio Optimization</h1>
 
+            <p
+                style={{
+                    color: "#94A3B8",
+                    marginTop: "-10px",
+                    marginBottom: "30px",
+                    textAlign: "center"
+                }}
+            >
+                Optimization based on covariance matrix and Markowitz portfolio theory.
+            </p>
+
             <input
                 value={tickers}
                 onChange={(e) =>
@@ -81,7 +92,7 @@ export default function PortfolioOptimization() {
 
             {
                 result && (<MetricCard
-                    title="Portfolio Variance"
+                    title="Portfolio Risk"
                     value={
                         (result.portfolio_variance * 100)
                             .toFixed(2) + "%"
