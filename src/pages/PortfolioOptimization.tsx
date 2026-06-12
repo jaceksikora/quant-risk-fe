@@ -59,44 +59,68 @@ export default function PortfolioOptimization() {
                 Optimization based on covariance matrix and Markowitz portfolio theory.
             </p>
 
-            <input
-                value={tickers}
-                onChange={(e) =>
-                    setTickers(e.target.value)
-                }
+            <div
                 style={{
-                    width: "400px",
-                    padding: "12px",
-                    borderRadius: "8px",
-                    border: "1px solid #334155",
-                    backgroundColor: "#1E293B",
-                    color: "#F8FAFC"
-                }}
-            />
-
-            <button
-                onClick={optimizePortfolio}
-                style={{
-                    marginLeft: "20px",
-                    padding: "12px 20px",
-                    borderRadius: "8px",
-                    border: "none",
-                    backgroundColor: "#2563EB",
-                    color: "white",
-                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "end",
+                    justifyContent: "center",
+                    gap: "20px",
                     marginBottom: "40px"
                 }}
             >
-                Optimize Portfolio
-            </button>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column"
+                    }}
+                >
+                    <label
+                        style={{
+                            marginBottom: "5px",
+                            color: "#94A3B8",
+                            fontSize: "14px"
+                        }}
+                    >
+                        Tickers
+                    </label>
 
+                    <input
+                        value={tickers}
+                        onChange={(e) =>
+                            setTickers(e.target.value)
+                        }
+                        style={{
+                            width: "400px",
+                            padding: "12px",
+                            borderRadius: "8px",
+                            border: "1px solid #334155",
+                            backgroundColor: "#1E293B",
+                            color: "#F8FAFC"
+                        }}
+                    />
+                </div>
+
+                <button
+                    onClick={optimizePortfolio}
+                    style={{
+                        padding: "12px 20px",
+                        borderRadius: "8px",
+                        border: "none",
+                        backgroundColor: "#2563EB",
+                        color: "white",
+                        cursor: "pointer"
+                    }}
+                >
+                    Optimize Portfolio
+                </button>
+            </div>
             {
                 result && (<MetricCard
                     title="Portfolio Risk"
                     value={
                         (result.portfolio_variance * 100)
                             .toFixed(2) + "%"
-                    }                />)
+                    }/>)
             }
             {
                 result && (

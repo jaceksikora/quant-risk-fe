@@ -122,11 +122,19 @@ export default function SimulationReport() {
             <div
                 style={{
                     display: "flex",
-                    gap: "20px",
-                    alignItems: "center",
-                    flexWrap: "wrap"
+                    flexDirection: "column"
                 }}
             >
+
+                <label
+                    style={{
+                        marginBottom: "5px",
+                        color: "#94A3B8",
+                        fontSize: "14px"
+                    }}
+                >
+                    Tickers
+                </label>
 
                 <input
                     value={tickers}
@@ -142,6 +150,16 @@ export default function SimulationReport() {
                         color: "#F8FAFC"
                     }}
                 />
+
+                <label
+                    style={{
+                        marginBottom: "5px",
+                        color: "#94A3B8",
+                        fontSize: "14px"
+                    }}
+                >
+                    Investment Amount
+                </label>
 
                 <input
                     type="number"
@@ -159,6 +177,16 @@ export default function SimulationReport() {
                         color: "#F8FAFC"
                     }}
                 />
+
+                <label
+                    style={{
+                        marginBottom: "5px",
+                        color: "#94A3B8",
+                        fontSize: "14px"
+                    }}
+                >
+                    Simulations
+                </label>
 
                 <input
                     type="number"
@@ -185,7 +213,12 @@ export default function SimulationReport() {
                         border: "none",
                         backgroundColor: "#2563EB",
                         color: "white",
-                        cursor: "pointer"
+                        cursor: "pointer",
+
+                        maxWidth: "300px",
+                        width: "100%",
+                        alignSelf: "center",
+                        marginTop: "15px"
                     }}
                 >
                     Run Simulation
@@ -229,13 +262,19 @@ export default function SimulationReport() {
                         backgroundColor: "#16A34A",
                         color: "white",
                         cursor: "pointer",
+
+                        maxWidth: "300px",
+                        width: "100%",
+                        alignSelf: "center",
+                        marginTop: "15px",
+
                         opacity: loadingReport ? 0.7 : 1
                     }}
                 >
                     {
                         loadingReport
                             ? "Generating..."
-                            : "Generate AI Report"
+                            : "Generate Investment Analysis"
                     }
                 </button>
 

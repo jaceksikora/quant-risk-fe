@@ -89,28 +89,46 @@ export default function MarketAnalysis() {
                 style={{
                     display: "flex",
                     justifyContent: "center",
+                    alignItems: "end",
                     gap: "20px",
                     marginBottom: "30px"
                 }}
             >
-
-                <input
-                    value={ticker}
-                    onChange={(e) =>
-                        setTicker(
-                            e.target.value.toUpperCase()
-                        )
-                    }
-                    placeholder="AAPL"
+                <div
                     style={{
-                        textTransform: "uppercase",
-                        padding: "12px",
-                        borderRadius: "8px",
-                        border: "1px solid #334155",
-                        backgroundColor: "#1E293B",
-                        color: "#F8FAFC"
+                        display: "flex",
+                        flexDirection: "column"
                     }}
-                />
+                >
+                    <label
+                        style={{
+                            marginBottom: "5px",
+                            color: "#94A3B8",
+                            fontSize: "14px"
+                        }}
+                    >
+                        Ticker
+                    </label>
+
+                    <input
+                        value={ticker}
+                        onChange={(e) =>
+                            setTicker(
+                                e.target.value.toUpperCase()
+                            )
+                        }
+                        placeholder="AAPL"
+                        style={{
+                            textTransform: "uppercase",
+                            width: "300px",
+                            padding: "12px",
+                            borderRadius: "8px",
+                            border: "1px solid #334155",
+                            backgroundColor: "#1E293B",
+                            color: "#F8FAFC"
+                        }}
+                    />
+                </div>
 
                 <button
                     onClick={fetchData}
@@ -125,7 +143,6 @@ export default function MarketAnalysis() {
                 >
                     Analyze
                 </button>
-
             </div>
 
             <div
